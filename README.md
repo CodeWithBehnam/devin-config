@@ -79,7 +79,7 @@ devin
 
 ## What's included
 
-### Hook scripts (11)
+### Hook scripts (12)
 
 | Script | Event | What it does |
 |--------|-------|-------------|
@@ -89,6 +89,7 @@ devin
 | `block-writes-outside.sh` | PreToolUse | Blocks writes outside `DEVIN_PROJECT_DIR` (except `/tmp`) |
 | `block-exfil.sh` | PreToolUse | Blocks curl/wget POST/PUT/data-upload, nc/socat, long webfetch URLs |
 | `gate-mcp.sh` | PreToolUse | Blocks MCP tools with write verbs (create/update/delete/send/interact) |
+| `block-ai-slop.sh` | PostToolUse | Blocks AI slop patterns (delve, leverage, foster, robust, etc.) in written content |
 | `block-em-dashes.sh` | PreToolUse | Blocks em-dashes and en-dashes in writes, edits, and shell commands |
 | `audit-log.sh` | PostToolUse | Logs every exec/write/edit to `~/.config/devin/logs/` |
 | `session-context.sh` | SessionStart | Injects guardrail summary at session start |
@@ -112,6 +113,12 @@ Adapted from [data-goblin/claude-code-useful-slash-commands](https://github.com/
 `/review-recent-changes`, `/setup-github-repo`, `/update-readme`,
 `/visualize-code-flow`, `/work-on-issue`
 
+### Skills
+
+| Skill | What it does |
+|-------|-------------|
+| `no-ai-slop` | Removes AI slop patterns from writing while preserving voice. Use with `/no-ai-slop` |
+
 ### Templates
 
 - `LICENSE` — MIT license template
@@ -132,6 +139,7 @@ devin-config/
 ├── install.sh                         # Installation script
 ├── scripts/                           # Hook scripts (10)
 │   ├── audit-log.sh
+│   ├── block-ai-slop.sh
 │   ├── auto-approve.sh
 │   ├── block-banned-tools.sh
 │   ├── block-dangerous.sh
@@ -152,6 +160,10 @@ devin-config/
 │   ├── update-readme.md
 │   ├── visualize-code-flow.md
 │   └── work-on-issue.md
+├── skills/
+│   └── no-ai-slop/
+│       ├── SKILL.md
+│       └── eval.md
 └── templates/                         # Repo scaffolding templates
     ├── LICENSE
     ├── README.md
@@ -174,6 +186,7 @@ devin-config/
 | `HOOKS.md` | `~/.config/devin/HOOKS.md` |
 | `templates/*` | `~/.config/devin/templates/` |
 | `commands/*.md` | `~/.claude/commands/` |
+| `skills/*` | `~/.config/devin/skills/` |
 
 ## Verify
 

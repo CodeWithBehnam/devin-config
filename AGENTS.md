@@ -58,6 +58,24 @@ project. Project-level `AGENTS.md` files are loaded on top of these.
 - Update deps: `bun update <pkg>` (or `bun update` for all)
 - Prefer `bun.lockb` + `package.json` over other lockfiles
 
+## Writing
+
+- Never use AI slop patterns in any text you write (docs, READMEs, comments,
+  commit messages, PR descriptions). This is enforced by a hook that blocks
+  writes containing banned words and phrases.
+- Banned words: delve, foster, leverage, utilize, facilitate, empower,
+  streamline, robust, cutting-edge, tapestry, realm, beacon, multifaceted,
+  meticulous, intricate, paramount, transformative, elevate, embark,
+  supercharge, harness, ever-evolving, and all conjugations.
+- Banned phrases: "here is the thing", "let me be clear", "what nobody tells
+  you", "in conclusion", "at the end of the day", "the reality is", "lets
+  dive in", "it is worth noting", and similar filler.
+- When writing prose (docs, READMEs, PR descriptions), run the /no-ai-slop
+  skill on the draft before writing the file. The hook will block the write
+  if slop patterns remain.
+- Use plain, direct language. Concrete details over abstractions. Active
+  voice. Short sentences. No filler.
+
 ## Guardrails
 
 Active guardrails are enforced by hooks (see `~/.config/devin/HOOKS.md`).

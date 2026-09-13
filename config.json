@@ -83,6 +83,16 @@
             "timeout": 5
           }
         ]
+      },
+      {
+        "matcher": "^(write|edit|apply_patch)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/block-ai-slop.sh",
+            "timeout": 10
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -91,7 +101,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.config/devin/scripts/session-context.sh",
+            "command": "~/.config/devin/scripts/session-context.py",
             "timeout": 5
           }
         ]
