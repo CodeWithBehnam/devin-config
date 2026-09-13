@@ -4,51 +4,121 @@
     "PreToolUse": [
       {
         "matcher": "^(read|write|edit|apply_patch|notebook_read|notebook_edit|exec|grep|glob)$",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/block-secrets.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/block-secrets.sh",
+            "timeout": 5
+          }
+        ]
       },
       {
         "matcher": "^exec$",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/block-dangerous.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/block-dangerous.sh",
+            "timeout": 5
+          }
+        ]
       },
       {
         "matcher": "^exec$",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/block-banned-tools.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/block-banned-tools.sh",
+            "timeout": 5
+          }
+        ]
       },
       {
         "matcher": "^(write|edit|apply_patch|notebook_edit)$",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/block-writes-outside.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/block-writes-outside.sh",
+            "timeout": 5
+          }
+        ]
       },
       {
         "matcher": "^(exec|webfetch)$",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/block-exfil.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/block-exfil.sh",
+            "timeout": 5
+          }
+        ]
       },
       {
         "matcher": "^mcp__.*",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/gate-mcp.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/gate-mcp.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "^(write|edit|apply_patch|exec)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/block-em-dashes.sh",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "PostToolUse": [
       {
         "matcher": "^(exec|write|edit|apply_patch|notebook_edit)$",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/audit-log.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/audit-log.sh",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "SessionStart": [
       {
         "matcher": "",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/session-context.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/session-context.sh",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
       {
         "matcher": "",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/prompt-policy.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/prompt-policy.sh",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "PermissionRequest": [
       {
         "matcher": "^exec$",
-        "hooks": [{ "type": "command", "command": "~/.config/devin/scripts/auto-approve.sh", "timeout": 5 }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/devin/scripts/auto-approve.sh",
+            "timeout": 5
+          }
+        ]
       }
     ]
   }

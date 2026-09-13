@@ -79,7 +79,7 @@ devin
 
 ## What's included
 
-### Hook scripts (10)
+### Hook scripts (11)
 
 | Script | Event | What it does |
 |--------|-------|-------------|
@@ -89,6 +89,7 @@ devin
 | `block-writes-outside.sh` | PreToolUse | Blocks writes outside `DEVIN_PROJECT_DIR` (except `/tmp`) |
 | `block-exfil.sh` | PreToolUse | Blocks curl/wget POST/PUT/data-upload, nc/socat, long webfetch URLs |
 | `gate-mcp.sh` | PreToolUse | Blocks MCP tools with write verbs (create/update/delete/send/interact) |
+| `block-em-dashes.sh` | PreToolUse | Blocks em-dashes and en-dashes in writes, edits, and shell commands |
 | `audit-log.sh` | PostToolUse | Logs every exec/write/edit to `~/.config/devin/logs/` |
 | `session-context.sh` | SessionStart | Injects guardrail summary at session start |
 | `prompt-policy.sh` | UserPromptSubmit | Injects policy reminder on every prompt |
@@ -134,6 +135,7 @@ devin-config/
 │   ├── auto-approve.sh
 │   ├── block-banned-tools.sh
 │   ├── block-dangerous.sh
+│   ├── block-em-dashes.sh
 │   ├── block-exfil.sh
 │   ├── block-secrets.sh
 │   ├── block-writes-outside.sh
